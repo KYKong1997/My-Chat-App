@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore,AngularFirestoreModule } from 'angularfire2/firestore';
 import {Observable} from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,8 +20,8 @@ name:string;
 message:string;
 
 constructor(public db:AngularFirestore){
- 
-  this.messages=this.db.collection('Chat').valueChanges();
+  var credential = firebase.auth.GoogleAuthProvider.credential(id_token);
+  this.messages=this.db.collection('Chat',ref=>ref.orderBy("createdOn","desc")).valueChanges();
   
   
 

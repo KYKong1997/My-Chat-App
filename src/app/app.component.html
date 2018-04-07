@@ -7,7 +7,12 @@
 </div>
 
 <div *ngFor="let message of messages | async">
-  {{message.name}} says {{message.message}}
+  <div>
+      {{message.name}} says {{message.message}}
+  </div>
+<hr/>
+  
+  
 </div>
 
 
