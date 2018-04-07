@@ -20,7 +20,7 @@ name:string;
 message:string;
 
 constructor(public db:AngularFirestore){
-  var credential = firebase.auth.GoogleAuthProvider.credential(id_token);
+ 
   this.messages=this.db.collection('Chat',ref=>ref.orderBy("createdOn","desc")).valueChanges();
   
   

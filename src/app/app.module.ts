@@ -5,6 +5,7 @@ import { AngularFireModule } from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import { AppComponent } from './app.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
 const config = {
   apiKey: "AIzaSyAwTevbDhXIfxoRir0reiBC0RyNzh5uOFM",
   authDomain: "my-chat-app-c5559.firebaseapp.com",
@@ -22,10 +23,13 @@ const config = {
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(config),
-    AngularFirestoreModule,
+    BrowserModule,
+    
+    
+    AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
