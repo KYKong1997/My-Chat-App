@@ -28,3 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Start the server
 npm run start
+
+## Build the web app for firebase to host
+npm run build
+install firebase CLI

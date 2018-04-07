@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore,AngularFirestoreModule } from 'angularfire2/firestore';
-
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,21 +12,16 @@ export class AppComponent {
   title = 'my chat app';
   testing = 'This is a cheat hahahahahahhahahahhahah';
 
-  messages=[];
+  messages:Observable<any[]>;
 
 
 name:string;
 message:string;
 
 constructor(public db:AngularFirestore){
-  console.log('line 1');
-  const observer=this.db.collection('Chat').valueChanges();
-  console.log('line 2');
-  observer.subscribe(function(data){
-    console.log(data);
-    console.log('line 3');
-  });
-  console.log('line 4');
+ 
+  this.messages=this.db.collection('Chat').valueChanges();
+  
   
 
 }
